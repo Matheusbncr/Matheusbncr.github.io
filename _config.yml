@@ -1,0 +1,41 @@
+# Configuração do Tema Científico Jekyll
+name: Blog Científico
+description: Um blog dedicado às ciências
+url: ""
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:categories/:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Autor"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Theme settings
+theme_color: "#1e3a8a"
+accent_color: "#06b6d4"
+

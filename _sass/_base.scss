@@ -1,0 +1,277 @@
+// Reset e estilos base
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $font-primary;
+    font-size: $font-size-base;
+    line-height: $line-height-normal;
+    color: $text-primary;
+    background-color: $bg-primary;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+// Fundo científico principal
+.scientific-theme {
+    position: relative;
+    background: linear-gradient(135deg, $bg-primary 0%, #1e293b 50%, #0f172a 100%);
+    
+    &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../images/scientific-background.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        opacity: 0.3;
+        z-index: -2;
+    }
+}
+
+// Overlay para melhor legibilidade
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $bg-overlay;
+    z-index: -1;
+    pointer-events: none;
+}
+
+// Efeito de partículas animadas
+.bg-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: $secondary-color;
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+        opacity: 0.6;
+    }
+    
+    &::before {
+        top: 20%;
+        left: 10%;
+        animation-delay: -2s;
+    }
+    
+    &::after {
+        top: 60%;
+        right: 15%;
+        animation-delay: -4s;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+// Wrapper principal da página
+.page-wrapper {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+// Tipografia
+h1, h2, h3, h4, h5, h6 {
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-tight;
+    margin-bottom: $spacing-md;
+    color: $text-primary;
+}
+
+h1 {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+}
+
+h2 {
+    font-size: $font-size-3xl;
+}
+
+h3 {
+    font-size: $font-size-2xl;
+}
+
+h4 {
+    font-size: $font-size-xl;
+}
+
+h5 {
+    font-size: $font-size-lg;
+}
+
+h6 {
+    font-size: $font-size-base;
+}
+
+p {
+    margin-bottom: $spacing-md;
+    color: $text-secondary;
+    line-height: $line-height-relaxed;
+}
+
+// Links
+a {
+    color: $text-accent;
+    text-decoration: none;
+    transition: all $transition-fast;
+    
+    &:hover {
+        color: $accent-color;
+        text-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+    }
+    
+    &:focus {
+        outline: 2px solid $secondary-color;
+        outline-offset: 2px;
+    }
+}
+
+// Listas
+ul, ol {
+    margin-bottom: $spacing-md;
+    padding-left: $spacing-lg;
+    color: $text-secondary;
+}
+
+li {
+    margin-bottom: $spacing-xs;
+}
+
+// Código
+code {
+    font-family: $font-mono;
+    font-size: $font-size-sm;
+    background: rgba(6, 182, 212, 0.1);
+    color: $secondary-color;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+pre {
+    background: $bg-secondary;
+    border: 1px solid $bg-tertiary;
+    border-radius: $border-radius-md;
+    padding: $spacing-md;
+    margin-bottom: $spacing-md;
+    overflow-x: auto;
+    
+    code {
+        background: none;
+        border: none;
+        padding: 0;
+        font-size: $font-size-sm;
+        color: $text-primary;
+    }
+}
+
+// Blockquotes
+blockquote {
+    border-left: 4px solid $secondary-color;
+    padding-left: $spacing-md;
+    margin: $spacing-lg 0;
+    font-style: italic;
+    color: $text-secondary;
+    background: rgba(6, 182, 212, 0.05);
+    padding: $spacing-md;
+    border-radius: $border-radius-md;
+}
+
+// Imagens
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: $border-radius-md;
+}
+
+// Tabelas
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: $spacing-md;
+    background: $bg-secondary;
+    border-radius: $border-radius-md;
+    overflow: hidden;
+}
+
+th, td {
+    padding: $spacing-sm $spacing-md;
+    text-align: left;
+    border-bottom: 1px solid $bg-tertiary;
+}
+
+th {
+    background: $bg-tertiary;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+}
+
+td {
+    color: $text-secondary;
+}
+
+// Utilitários
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+

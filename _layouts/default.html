@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.name }}</title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Meta tags -->
+    <meta name="author" content="{{ site.author | default: 'Blog Científico' }}">
+    <meta name="theme-color" content="{{ site.theme_color | default: '#1e3a8a' }}">
+</head>
+<body class="scientific-theme">
+    <div class="page-wrapper">
+        <!-- Background Elements -->
+        <div class="bg-overlay"></div>
+        <div class="bg-particles"></div>
+        
+        <!-- Header -->
+        {% include header.html %}
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            {{ content }}
+        </main>
+        
+        <!-- Footer -->
+        {% include footer.html %}
+    </div>
+    
+    <!-- Scripts -->
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>
+

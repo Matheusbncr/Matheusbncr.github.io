@@ -1,0 +1,37 @@
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p>&copy; {{ 'now' | date: "%Y" }} {{ site.name | default: "Blog Científico" }}. Todos os direitos reservados.</p>
+                <p class="footer-description">{{ site.description | default: "Explorando o mundo da ciência" }}</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="{{ '/' | relative_url }}">Início</a></li>
+                        <li><a href="{{ '/sobre' | relative_url }}">Sobre</a></li>
+                        <li><a href="{{ '/arquivo' | relative_url }}">Arquivo</a></li>
+                        <li><a href="{{ '/contato' | relative_url }}">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="link-group">
+                    <h4>Categorias</h4>
+                    <ul>
+                        <li><a href="{{ '/categoria/biologia' | relative_url }}">Biologia</a></li>
+                        <li><a href="{{ '/categoria/fisica' | relative_url }}">Física</a></li>
+                        <li><a href="{{ '/categoria/quimica' | relative_url }}">Química</a></li>
+                        <li><a href="{{ '/categoria/tecnologia' | relative_url }}">Tecnologia</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>Feito com Jekyll e muito ☕</p>
+        </div>
+    </div>
+</footer>
+
